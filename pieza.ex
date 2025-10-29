@@ -36,13 +36,15 @@ defmodule Pieza do
 
   #funcion que guarda el inventario
   def guardar_inventario(nombre_archivo, piezas) do
+    headers= "Codigo, Nombre, Valor, Unidad, Stock\n"
+
     contenido =
       Enum.map(piezas, fn p ->
         "#{p.codigo},#{p.nombre},#{p.valor},#{p.unidad},#{p.stock}"
       end)
       |> Enum.join("\n")
 
-    case File.write(nombre_archivo, contenido) do
+    case File.write(nombre_archivo, headers <> contenido) do
       :ok -> IO.puts("Inventario guardado en #{nombre_archivo}")
       {:error, razon} -> IO.puts("Error al guardar: #{razon}")
     end
