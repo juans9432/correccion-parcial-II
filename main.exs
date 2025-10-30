@@ -26,9 +26,11 @@ defmodule Main do
     IO.puts(" Inventario actualizado correctamente:")
     IO.inspect(inventario_actualizado)
 
-    Pieza.guardar_inventario("inventario_actual.csv", inventario_actualizado)
+    Pieza.guardar_piezas("piezas.csv", piezas)
 
     Movimiento.guardar("movimientos.csv", movimientos)
+
+    Inventario.guardar_inventario("inventario_actual.csv", inventario_actualizado)
 
     fini = "2025-10-01"
     ffin = "2025-10-03"

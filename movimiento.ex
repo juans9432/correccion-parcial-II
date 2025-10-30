@@ -32,15 +32,16 @@ defmodule Movimiento do
     end
   end
 
-  #funcion que guarda 
+  #funcion que guarda
   def guardar(nombre_archivo, movimientos) do
+    headers = "Codigo, Tipo, Cantidad, Fecha\n"
     contenido =
       Enum.map(movimientos, fn m ->
         "#{m.codigo},#{m.tipo},#{m.cantidad},#{m.fecha}"
       end)
       |> Enum.join("\n")
 
-    case File.write(nombre_archivo, contenido) do
+    case File.write(nombre_archivo, headers <> contenido) do
       :ok -> IO.puts("Movimientos guardados en #{nombre_archivo}")
       {:error, reason} -> IO.puts("Error al guardar movimientos: #{reason}")
     end

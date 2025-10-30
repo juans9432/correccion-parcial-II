@@ -35,7 +35,7 @@ defmodule Pieza do
   end
 
   #funcion que guarda el inventario
-  def guardar_inventario(nombre_archivo, piezas) do
+  def guardar_piezas(nombre_archivo, piezas) do
     headers= "Codigo, Nombre, Valor, Unidad, Stock\n"
 
     contenido =
