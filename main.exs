@@ -13,7 +13,7 @@ defmodule Main do
     IO.puts("Inventario inicial:")
     IO.inspect(piezas)
 
-    m1 = Movimiento.crear("COD123", "ENTRADA", 50, "2025-09-10")
+    m1 = Movimiento.crear("COD123", "ENTRADA", 50, "2025-10-02")
     m2 = Movimiento.crear("COD124", "SALIDA", 10, "2025-09-12")
 
     movimientos = [m1, m2]
